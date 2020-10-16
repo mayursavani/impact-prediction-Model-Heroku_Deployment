@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Impact prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #000;">
+<p>Welcome to Incident Service Dashboard. Please read the Features information given below</p>
+<p>You can enter only integer values for any given feature.</p>
+ <div class="login">
+	<h1>Impact Forecasting</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="ID" placeholder="ID" required="required" />
+        <input type="text" name="ID status" placeholder="ID status" required="required" />
+	<input type="text" name="active" placeholder="active" required="required" />
+        <input type="text" name="count_reassign" placeholder="count_reassign" required="required" />
+        <input type="text" name="count_opening" placeholder="count_opening" required="required" />
+        <input type="text" name="count_updated" placeholder="count_updated" required="required" />
+        <input type="text" name="ID_caller" placeholder="ID_caller" required="required" />
+        <input type="text" name="opened_by" placeholder="opened_by" required="required" />
+        <input type="text" name="opened_time" placeholder="opened_time" required="required" />
+        <input type="text" name="Created_by" placeholder="Created_by" required="required" />
+        <input type="text" name="created_at" placeholder="created_at" required="required" />
+        <input type="text" name="updated_by" placeholder="updated_at" required="required" />
+        <input type="text" name="type_contact" placeholder="type_contact" required="required" />
+        <input type="text" name="location" placeholder="location" required="required" />
+        <input type="text" name="category_ID" placeholder="category_ID" required="required" />
+        <input type="text" name="user_symtom" placeholder="user_symtom" required="required" />
+        <input type="text" name="Support_group" placeholder="Support_group" required="required" />
+        <input type="text" name="support_incharge" placeholder="support_incharge" required="required" />
+        <input type="text" name="Doc_knowledge" placeholder="Doc_knowledge" required="required" />
+        <input type="text" name="confirmation_check" placeholder="confirmation_check" required="required" />
+        <input type="text" name="notify" placeholder="notify" required="required" />
+
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict impact of raised incident</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</head>
